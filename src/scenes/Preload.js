@@ -13,6 +13,9 @@ class Preload extends Phaser.Scene {
     //we need to load the tiles that form up the map/tileset
     this.load.image('tiles-1', 'assets/main_lev_build_1.png');
     this.load.image('tiles-2', 'assets/main_lev_build_2.png');
+
+    //loading the player
+    this.load.image('player', 'assets/player/movements/idle01.png')
   }
 
   create() {
