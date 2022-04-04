@@ -10,7 +10,10 @@ class Play extends Phaser.Scene {
     const map = this.createMap();
     const layers = this.createLayers(map);
 
-    this.createPlayer();
+    const player=this.createPlayer();
+    
+    //making the platform as coliders
+    this.physics.add.collider(player,layers.platforms);
   }
 
   createMap() {
@@ -28,6 +31,12 @@ class Play extends Phaser.Scene {
     const tileset = map.getTileset('main_lev_build_1');
     const environment = map.createStaticLayer('environment', tileset);
     const platforms = map.createDynamicLayer('platforms', tileset);
+
+    //making the platrom as a collider 
+    //true= set it as a colider
+    // -1 = anything more than 0 is a collider object(see in the tilled JSON)
+    platforms.setCollisionByExclusion(-1,true);
+
     return { environment, platforms };
   }
 
@@ -35,6 +44,7 @@ class Play extends Phaser.Scene {
     const player=this.physics.add.sprite(100,250,'player');
     player.body.setGravityY(500);
     player.setCollideWorldBounds(true);
+    return player;
   }
 }
 
