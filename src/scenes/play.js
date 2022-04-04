@@ -13,7 +13,7 @@ class Play extends Phaser.Scene {
     const player=this.createPlayer();
     
     //making the platform as coliders
-    this.physics.add.collider(player,layers.platforms);
+    this.physics.add.collider(player,layers.platformsColliders);
   }
 
   createMap() {
@@ -29,15 +29,23 @@ class Play extends Phaser.Scene {
   createLayers(map) {
     //tileset name and layer name should be SAME AS IN THE TILED SOFTWARE  
     const tileset = map.getTileset('main_lev_build_1');
+    const platformsColliders = map.createStaticLayer('platforms_colliders', tileset);
     const environment = map.createStaticLayer('environment', tileset);
     const platforms = map.createDynamicLayer('platforms', tileset);
 
+    //METHOD-1
     //making the platrom as a collider 
     //true= set it as a colider
     // -1 = anything more than 0 is a collider object(see in the tilled JSON)
-    platforms.setCollisionByExclusion(-1,true);
+    //platforms.setCollisionByExclusion(-1,true);
 
-    return { environment, platforms };
+
+    // M-2
+    // make a layer and make a custom property
+    
+    platformsColliders.setCollisionByProperty({collides:true});
+
+    return { environment, platforms,platformsColliders };
   }
 
   createPlayer(){
