@@ -12,6 +12,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this);
         
     this.init();
+    this.initEvents();
     }
 
     init() {
@@ -23,10 +24,23 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.body.setGravityY(this.gravity);
     this.setCollideWorldBounds(true);
+
+        // animation for running 
+    this.scene.anims.create({
+        key: 'run',
+        //the spritsheet that is loaded is used here
+        frames: this.scene.anims.generateFrameNumbers('player', {start: 11, end: 16}),
+        frameRate: 8,
+        repeat: -1
+      })
     }
 
-    preUpdate(time, delta) {
-    super.preUpdate(time, delta);
+    initEvents() {
+        this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.update, this)
+      }
+    
+      
+      update() {
     const { left, right } = this.cursors;
 
     if (left.isDown) {
@@ -36,6 +50,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     } else {
         this.setVelocityX(0);
     }
+
+    // dont play it again if it's already playing
+    // second value -> ignoreIfPlaying
+    this.play('run', true);
   }
 }
 
