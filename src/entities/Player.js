@@ -18,7 +18,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     init() {
     this.gravity = 500;
      //left and right speed
-     this.playerSpeed=200;
+     this.playerSpeed=150;
      //taking instru. form the user
 
     this.jumpCount = 0;
@@ -55,17 +55,23 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     if ((isSpaceJustDown || isUpJustDown) && (onFloor || this.jumpCount < this.consecutiveJumps)) {
-      this.setVelocityY(-this.playerSpeed * 1.5)
+      this.setVelocityY(-this.playerSpeed * 2)
       this.jumpCount++;
     }
 
     if (onFloor) {
       this.jumpCount = 0;
     }
+
+    //if player in on the floor then
+    onFloor ?
     //if we are standing then play IDLE animation
     //if we move play RUN animation
     this.body.velocity.x !== 0 ?
-    this.play('run', true) : this.play('idle', true);
+    this.play('run', true) : this.play('idle', true):
+    
+    //play the jump animation
+    this.play('jump', true)
   }
 }
 
