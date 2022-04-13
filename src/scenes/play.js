@@ -33,31 +33,28 @@ class Play extends Phaser.Scene {
     this.createEndOfLevel(playerZones.end, player);
     this.setupFollowupCameraOn(player);
 
-    this.plotting = false;
-    this.graphics = this.add.graphics();
-    this.line = new Phaser.Geom.Line();
-    this.graphics.lineStyle(1, 0x00ff00);
-
-    //when the mouse button is clicked
-    this.input.on('pointerdown', this.startDrawing, this);
-    //when th mouse button is released
-    this.input.on('pointerup', this.finishDrawing, this);
+    
   }
 
-  startDrawing(pointer) {
-    this.line.x1 = pointer.worldX;
-    this.line.y1 = pointer.worldY;
-    this.plotting = true;
-  }
+  
 
 
 
-  finishDrawing(pointer) {
+  finishDrawing(pointer, layer) {
     this.line.x2 = pointer.worldX;
     this.line.y2 = pointer.worldY;
 
     this.graphics.clear();
     this.graphics.strokeLineShape(this.line);
+
+    this.tileHits = layer.getTilesWithinShape(this.line);
+
+    if (this.tileHits.length > 0) {
+      this.tileHits.forEach(tile => {
+        tile.index !== -1 && tile.setCollision(true)
+      })
+    }
+    this.drawDebug(layer);
     this.plotting = false;
   }
 
@@ -152,16 +149,7 @@ class Play extends Phaser.Scene {
     })
   }
 
-  update() {
-    if (this.plotting) {
-      const pointer = this.input.activePointer;
 
-      this.line.x2 = pointer.worldX;
-      this.line.y2 = pointer.worldY;
-      this.graphics.clear();
-      this.graphics.strokeLineShape(this.line);
-    }
-  }
 }
 
 export default Play;
