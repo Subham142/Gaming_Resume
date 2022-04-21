@@ -3,6 +3,7 @@ import initAnimations from './anims/playerAnims';
 import collidable from '../mixins/collidable';
 import HealthBar from '../hud/HealthBar';
 import Projectiles from '../attacks/Projectiles';
+import anims from '../mixins/anims';
 
 class Player extends Phaser.Physics.Arcade.Sprite {
   constructor(scene, x, y) {
@@ -16,6 +17,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
      // Mixins
      Object.assign(this, collidable);
+     Object.assign(this, anims);
         
     this.init();
     this.initEvents();
@@ -55,7 +57,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     // for firing iceballs 
     this.scene.input.keyboard.on('keydown-Q', () => {
-      console.log('pressing Q');
+      this.play('throw', true);
       this.projectiles.fireProjectile(this);
     })
     }
@@ -92,6 +94,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
     if (onFloor) {
       this.jumpCount = 0;
+    }
+
+    //if thorw animation is going then others should stop
+    if (this.isPlayingAnims('throw')) {
+      return;
     }
 
     //if player in on the floor then
