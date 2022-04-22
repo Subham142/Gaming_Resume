@@ -69,6 +69,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
   }
 
   takesHit(source) {
+    source.deliversHit(this);
     this.health -= source.damage;
 
     source.setActive(false);
