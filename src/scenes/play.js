@@ -1,7 +1,7 @@
-
 import Phaser from 'phaser';
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
+
 import initAnims from '../anims';
 
 class Play extends Phaser.Scene {
@@ -33,12 +33,9 @@ class Play extends Phaser.Scene {
 
     this.createEndOfLevel(playerZones.end, player);
     this.setupFollowupCameraOn(player);
-    initAnims(this.anims);    
+
+    initAnims(this.anims);
   }
-
-  
-
-
 
   finishDrawing(pointer, layer) {
     this.line.x2 = pointer.worldX;
@@ -54,43 +51,29 @@ class Play extends Phaser.Scene {
         tile.index !== -1 && tile.setCollision(true)
       })
     }
+
     this.drawDebug(layer);
+
     this.plotting = false;
   }
 
   createMap() {
-    //map is preloaded
-    //now we need to create it, so we call it by the key we provided and also the tiles used for the creation of the map
     const map = this.make.tilemap({key: 'map'});
-
-    //name should be SAME AS IN THE TILED SOFTWARE  
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
     return map;
   }
 
   createLayers(map) {
-    //tileset name and layer name should be SAME AS IN THE TILED SOFTWARE  
     const tileset = map.getTileset('main_lev_build_1');
     const platformsColliders = map.createStaticLayer('platforms_colliders', tileset);
     const environment = map.createStaticLayer('environment', tileset);
-    const platforms = map.createDynamicLayer('platforms', tileset);
+    const platforms = map.createStaticLayer('platforms', tileset);
     const playerZones = map.getObjectLayer('player_zones');
     const enemySpawns = map.getObjectLayer('enemy_spawns');
-    
 
-    //METHOD-1
-    //making the platrom as a collider 
-    //true= set it as a colider
-    // -1 = anything more than 0 is a collider object(see in the tilled JSON)
-    //platforms.setCollisionByExclusion(-1,true);
+    platformsColliders.setCollisionByProperty({collides: true});
 
-
-    // M-2
-    // make a layer and make a custom property
-    
-    platformsColliders.setCollisionByProperty({collides:true});
-
-    return { environment, platforms,platformsColliders, playerZones, enemySpawns };
+    return { environment, platforms, platformsColliders, playerZones, enemySpawns };
   }
 
   createPlayer(start) {
@@ -102,7 +85,7 @@ class Play extends Phaser.Scene {
     const enemyTypes = enemies.getTypes();
 
     spawnLayer.objects.forEach((spawnPoint, i) => {
-      //if (i === 1) { return; }
+      // if (i === 1) { return; }
       const enemy = new enemyTypes[spawnPoint.type](this, spawnPoint.x, spawnPoint.y);
       enemy.setPlatformColliders(platformsColliders)
       enemies.add(enemy);
@@ -123,7 +106,7 @@ class Play extends Phaser.Scene {
     enemies
       .addCollider(colliders.platformsColliders)
       .addCollider(colliders.player, this.onPlayerCollision)
-      .addCollider(colliders.player.projectles, this.onWeaponHit)
+      .addCollider(colliders.player.projectiles, this.onWeaponHit)
       .addOverlap(colliders.player.meleeWeapon, this.onWeaponHit)
   }
 
@@ -158,8 +141,6 @@ class Play extends Phaser.Scene {
       console.log('Payer has won!');
     })
   }
-
-
 }
 
 export default Play;

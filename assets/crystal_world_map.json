@@ -99,8 +99,8 @@
                  "type":"Birdman",
                  "visible":true,
                  "width":0,
-                 "x":496,
-                 "y":192
+                 "x":480,
+                 "y":208
                 }, 
                 {
                  "height":0,
@@ -113,6 +113,18 @@
                  "width":0,
                  "x":1104,
                  "y":464
+                }, 
+                {
+                 "height":0,
+                 "id":9,
+                 "name":"Spawn",
+                 "point":true,
+                 "rotation":0,
+                 "type":"Snaky",
+                 "visible":true,
+                 "width":0,
+                 "x":896,
+                 "y":320
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -121,7 +133,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":7,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.2",

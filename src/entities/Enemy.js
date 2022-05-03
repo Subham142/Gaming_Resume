@@ -8,6 +8,7 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     super(scene, x, y, key);
 
     this.config = scene.config;
+
     scene.add.existing(this);
     scene.physics.add.existing(this);
 
@@ -21,13 +22,13 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
 
   init() {
     this.gravity = 500;
-    this.speed = 80;
+    this.speed = 75;
     this.timeFromLastTurn = 0;
     this.maxPatrolDistance = 250;
     this.currentPatrolDistance = 0;
 
+    this.health = 20;
     this.damage = 10;
-    this.health = 30;
 
     this.platformCollidersLayer = null;
     this.rayGraphics = this.scene.add.graphics({lineStyle: {width: 2, color: 0xaa00aa}});
@@ -53,16 +54,20 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
       this.destroy();
       return;
     }
+
     this.patrol(time);
   }
 
   patrol(time) {
     if (!this.body || !this.body.onFloor()) { return; }
+
     this.currentPatrolDistance += Math.abs(this.body.deltaX());
+
     const { ray, hasHit } = this.raycast(this.body, this.platformCollidersLayer, {
       precision: 1, steepnes: 0.2});
+
     if ((!hasHit || this.currentPatrolDistance >= this.maxPatrolDistance) &&
-    this.timeFromLastTurn + 100 < time) {
+         this.timeFromLastTurn + 100 < time) {
       this.setFlipX(!this.flipX);
       this.setVelocityX(this.speed = -this.speed);
       this.timeFromLastTurn = time;
@@ -83,11 +88,8 @@ class Enemy extends Phaser.Physics.Arcade.Sprite {
     source.deliversHit(this);
     this.health -= source.damage;
 
-    source.setActive(false);
-    source.setVisible(false);
-
     if (this.health <= 0) {
-     this.setTint(0xff0000);
+      this.setTint(0xff0000);
       this.setVelocity(0, -200);
       this.body.checkCollision.none = true;
       this.setCollideWorldBounds(false);
