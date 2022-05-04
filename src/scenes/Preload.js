@@ -26,6 +26,11 @@ class Preload extends Phaser.Scene {
     //loading the player
     //this.load.image('player', 'assets/player/movements/idle01.png')
 
+    this.load.spritesheet('player-slide-sheet', 'assets/player/slide_sheet_2.png', {
+      frameWidth: 32, frameHeight: 38, spacing: 32
+    })
+
+    
     //loading player spritsheet for animation of running and more
     this.load.spritesheet('player', 'assets/player/move_sprite_1.png', {
       frameWidth: 32, frameHeight: 38, spacing: 32
