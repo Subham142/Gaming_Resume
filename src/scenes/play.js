@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
-import Collectable from '../collectables/Collectable';
+import Collectables from '../groups/Collectables';
 
 import initAnims from '../anims';
 
@@ -13,6 +13,7 @@ class Play extends Phaser.Scene {
   }
 
   create() {
+    this.score = 0;
     const map = this.createMap();
     initAnims(this.anims);
     const layers = this.createLayers(map);
@@ -69,11 +70,8 @@ class Play extends Phaser.Scene {
   }
 
   createCollectables(collectableLayer) {
-    const collectables = this.physics.add.staticGroup().setDepth(-1);
-
-    collectableLayer.objects.forEach(collectableO => {
-      collectables.add(new Collectable(this, collectableO.x, collectableO.y, 'diamond'));
-    })
+    const collectables = new Collectables(this).setDepth(-1);
+    collectables.addFromLayer(collectableLayer);
 
     collectables.playAnimation('diamond-shine');
 
@@ -107,8 +105,8 @@ class Play extends Phaser.Scene {
   }
 
   onCollect(entity, collectable) {
-    // disableGameObject -> this will deactivate the object, default: false
-    // hideGameObject -> this will hide the game object. Default: false
+    this.score += collectable.score;
+    console.log(this.score);
     collectable.disableBody(true, true);
   }
 
@@ -124,7 +122,7 @@ class Play extends Phaser.Scene {
     player
       .addCollider(colliders.platformsColliders)
       .addCollider(colliders.projectiles, this.onWeaponHit)
-      .addOverlap(colliders.collectables, this.onCollect)
+      .addOverlap(colliders.collectables, this.onCollect,this)
   }
 
   setupFollowupCameraOn(player) {

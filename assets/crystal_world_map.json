@@ -414,6 +414,17 @@
                  "y":192
                 }],
          "opacity":1,
+         "properties":[
+                {
+                 "name":"score",
+                 "type":"int",
+                 "value":1
+                }, 
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"diamond"
+                }],
          "type":"objectgroup",
          "visible":true,
          "x":0,
