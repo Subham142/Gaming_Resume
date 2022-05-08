@@ -19,7 +19,7 @@ class Enemies extends Phaser.GameObjects.Group {
 
     return projectiles;
   }
-  
+
   getTypes() {
     return ENEMY_TYPES;
   }
