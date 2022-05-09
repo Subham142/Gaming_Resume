@@ -3,6 +3,7 @@ import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
 import Collectables from '../groups/Collectables';
 import Hud from '../hud';
+import EventEmitter from '../events/Emitter';
 
 import initAnims from '../anims';
 
@@ -13,7 +14,7 @@ class Play extends Phaser.Scene {
     this.config = config;
   }
 
-  create() {
+  create({gameStatus}) {
     this.score = 0;
     this.hud = new Hud(this, 0, 0);
     const map = this.createMap();
@@ -40,8 +41,12 @@ class Play extends Phaser.Scene {
       }
     });
 
+    
     this.createEndOfLevel(playerZones.end, player);
     this.setupFollowupCameraOn(player);
+    if (gameStatus === 'PLAYER_LOOSE') { return; }
+
+    this.createGameEvents();
 
     initAnims(this.anims);
   }
@@ -74,6 +79,13 @@ class Play extends Phaser.Scene {
       enemySpawns,
       collectables,
       traps };
+  }
+
+  createGameEvents() {
+    EventEmitter.on('PLAYER_LOOSE', () => {
+      console.log('Helko!');
+      this.scene.restart({gameStatus: 'PLAYER_LOOSE'});
+    })
   }
 
   createCollectables(collectableLayer) {
