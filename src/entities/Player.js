@@ -74,6 +74,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       
       update() {
         if (this.hasBeenHit || this.isSliding|| !this.body) { return; }
+        if (this.getBounds().top > this.scene.config.height) {
+          EventEmitter.emit('PLAYER_LOOSE');
+          return;
+        }
+        
         const { left, right, space, up, down } = this.cursors;
         const isSpaceJustDown = Phaser.Input.Keyboard.JustDown(space);
         const isUpJustDown = Phaser.Input.Keyboard.JustDown(up);
