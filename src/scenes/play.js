@@ -1,10 +1,8 @@
-
 import Phaser from 'phaser';
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
 import Collectables from '../groups/Collectables';
 import Hud from '../hud';
-import EventEmitter from '../events/Emitter';
 
 import initAnims from '../anims';
 
@@ -18,10 +16,8 @@ class Play extends Phaser.Scene {
   create() {
     this.score = 0;
     this.hud = new Hud(this, 0, 0);
-
     const map = this.createMap();
     initAnims(this.anims);
-
     const layers = this.createLayers(map);
     const playerZones = this.getPlayerZones(layers.playerZones);
     const player = this.createPlayer(playerZones.start);
@@ -44,9 +40,10 @@ class Play extends Phaser.Scene {
       }
     });
 
-    this.createGameEvents();
     this.createEndOfLevel(playerZones.end, player);
     this.setupFollowupCameraOn(player);
+
+    initAnims(this.anims);
   }
 
   createMap() {
@@ -66,6 +63,7 @@ class Play extends Phaser.Scene {
     const traps = map.createStaticLayer('traps', tileset);
 
     platformsColliders.setCollisionByProperty({collides: true});
+
     traps.setCollisionByExclusion(-1)
 
     return {
@@ -78,16 +76,10 @@ class Play extends Phaser.Scene {
       traps };
   }
 
-  createGameEvents() {
-    EventEmitter.on('PLAYER_LOOSE', () => {
-      alert('Player has lost the game!');
-    })
-  }
-
   createCollectables(collectableLayer) {
     const collectables = new Collectables(this).setDepth(-1);
-
     collectables.addFromLayer(collectableLayer);
+
     collectables.playAnimation('diamond-shine');
 
     return collectables;
@@ -138,7 +130,7 @@ class Play extends Phaser.Scene {
       .addCollider(colliders.platformsColliders)
       .addCollider(colliders.projectiles, this.onHit)
       .addCollider(colliders.traps, this.onHit)
-      .addOverlap(colliders.collectables, this.onCollect, this)
+      .addOverlap(colliders.collectables, this.onCollect,this)
   }
 
   setupFollowupCameraOn(player) {

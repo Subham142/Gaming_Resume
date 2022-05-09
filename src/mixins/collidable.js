@@ -1,3 +1,4 @@
+
 import Phaser from 'phaser';
 
 
@@ -6,6 +7,7 @@ export default {
     this.scene.physics.add.collider(this, otherGameobject, callback, null, context || this);
     return this;
   },
+
   addOverlap(otherGameobject, callback, context) {
     this.scene.physics.add.overlap(this, otherGameobject, callback, null, context || this);
     return this;
@@ -40,7 +42,7 @@ export default {
       case Phaser.Physics.Arcade.FACING_LEFT: {
         line.x1 = x;
         line.y1 = y + halfHeight;
-        line.x2 = line.x1 - raylength * steepnes;
+        line.x2 = line.x1 - raylength * steepnes
         line.y2 = line.y1 + raylength;
         break;
       }

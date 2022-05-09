@@ -36,7 +36,6 @@ class Snaky extends Enemy {
       this.timeFromLastAttack = time;
       this.attackDelay = this.getAttackDelay();
     }
-
     if (!this.active) { return; }
     if (this.isPlayingAnims('snaky-hurt')) { return; }
 
@@ -53,4 +52,4 @@ class Snaky extends Enemy {
   }
 }
 
-export default Snaky;
+export default Snaky; 

@@ -1,5 +1,4 @@
 
-
 import Phaser from 'phaser';
 import Projectile from './Projectile';
 import { getTimestamp } from '../utils/functions';
@@ -16,7 +15,6 @@ class Projectiles extends Phaser.Physics.Arcade.Group {
       key,
       classType: Projectile
     })
-
     this.timeFromLastProjectile = null;
   }
 
@@ -24,24 +22,27 @@ class Projectiles extends Phaser.Physics.Arcade.Group {
     const projectile = this.getFirstDead(false);
 
     if (!projectile) { return; }
+
+    //for cooldown / fring after every 1 sec
     if (this.timeFromLastProjectile &&
         this.timeFromLastProjectile + projectile.cooldown > getTimestamp()) { return; }
 
+    // for firing projectile from centre
     const center = initiator.getCenter();
     let centerX;
 
     if (initiator.lastDirection === Phaser.Physics.Arcade.FACING_RIGHT) {
-      projectile.speed = Math.abs(projectile.speed);
-      projectile.setFlipX(false);
-      centerX = center.x + 10;
-    } else {
-      projectile.speed = -Math.abs(projectile.speed);
-      projectile.setFlipX(true);
-      centerX = center.x - 10;
-    }
+        projectile.speed = Math.abs(projectile.speed);
+        projectile.setFlipX(false);
+        centerX = center.x + 10;
+      } else {
+        projectile.speed = -Math.abs(projectile.speed);
+        projectile.setFlipX(true);
+        centerX = center.x - 10;
+      }
 
-    projectile.fire(centerX, center.y, anim);
-    this.timeFromLastProjectile = getTimestamp();
+      projectile.fire(centerX, center.y, anim);
+      this.timeFromLastProjectile = getTimestamp();
   }
 
 }
