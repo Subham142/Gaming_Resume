@@ -24,6 +24,8 @@ class Play extends Phaser.Scene {
     const player = this.createPlayer(playerZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platformsColliders);
     const collectables = this.createCollectables(layers.collectables);
+    
+    this.createBG(map);
 
     this.createEnemyColliders(enemies, {
       colliders: {
@@ -79,6 +81,14 @@ class Play extends Phaser.Scene {
       enemySpawns,
       collectables,
       traps };
+  }
+
+  createBG(map) {
+    const bgObject = map.getObjectLayer('distance_bg').objects[0];
+    this.add.tileSprite(bgObject.x, bgObject.y, this.config.width, bgObject.height, 'bg-spikes-dark')
+      .setOrigin(0, 1)
+      .setDepth(-10)
+      .setScrollFactor(0, 1)
   }
 
   createGameEvents() {
