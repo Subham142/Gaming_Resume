@@ -10,11 +10,14 @@ class Preload extends Phaser.Scene {
     //since we are using the JSON file form tiled, we use this function(name,path)
     this.load.tilemapTiledJSON('map', 'assets/crystal_world_map.json');
 
+    this.load.image('bg-spikes-tileset', 'assets/bg_spikes_tileset.png');
+
     //we need to load the tiles that form up the map/tileset
     this.load.image('tiles-1', 'assets/main_lev_build_1.png');
     this.load.image('tiles-2', 'assets/main_lev_build_2.png');
 
     this.load.image('bg-spikes-dark', 'assets/bg_spikes_dark.png');
+    this.load.image('sky-play', 'assets/sky_play.png');
 
   // loading the iceball
   this.load.image('iceball-1', 'assets/weapons/iceball_001.png');
