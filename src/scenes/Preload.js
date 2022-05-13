@@ -75,12 +75,19 @@ class Preload extends Phaser.Scene {
       frameWidth: 52, frameHeight: 32, spacing: 16
     })
 
+    this.load.once('complete', () => {
+      this.startGame();
+    })
  
   }
 
-  create() {
+  startGame() {
+    this.registry.set('level', 1);
     this.scene.start('PlayScene')
   }
+  // create() {
+  //   this.scene.start('PlayScene')
+  // }
 }
 
 export default Preload;

@@ -54,7 +54,7 @@ class Play extends Phaser.Scene {
   }
 
   createMap() {
-    const map = this.make.tilemap({key: 'level_1'});
+    const map = this.make.tilemap({key: `level_${this.getCurrentLevel()}`});
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
     map.addTilesetImage('bg_spikes_tileset', 'bg-spikes-tileset');
     return map;
@@ -180,6 +180,10 @@ class Play extends Phaser.Scene {
     }
   }
 
+  getCurrentLevel() {
+    return this.registry.get('level') || 1;
+  }
+
   createEndOfLevel(end, player) {
     const endOfLevel = this.physics.add.sprite(end.x, end.y, 'end')
       .setAlpha(0)
@@ -188,7 +192,8 @@ class Play extends Phaser.Scene {
 
     const eolOverlap = this.physics.add.overlap(player, endOfLevel, () => {
       eolOverlap.active = false;
-      console.log('Payer has won!');
+         this.registry.inc('level', 1);
+      this.scene.restart({gameStatus: 'LEVEL_COMPLETED'})
     })
   }
 
