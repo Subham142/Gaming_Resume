@@ -18,6 +18,7 @@ class Play extends Phaser.Scene {
     this.score = 0;
     this.hud = new Hud(this, 0, 0);
     this.playBgMusic();
+    this.collectSound = this.sound.add('coin-pickup', {volume: 0.2});
     const map = this.createMap();
     initAnims(this.anims);
     const layers = this.createLayers(map);
@@ -26,8 +27,7 @@ class Play extends Phaser.Scene {
     const enemies = this.createEnemies(layers.enemySpawns, layers.platformsColliders);
     const collectables = this.createCollectables(layers.collectables);
     
-    this.createBG(map);
-
+   
     this.createEnemyColliders(enemies, {
       colliders: {
         platformsColliders: layers.platformsColliders,
@@ -44,6 +44,7 @@ class Play extends Phaser.Scene {
       }
     });
 
+    this.createBG(map);
     this.createBackButton();
 
     this.createEndOfLevel(playerZones.end, player);
@@ -58,10 +59,10 @@ class Play extends Phaser.Scene {
   playBgMusic() {
     if (this.sound.get('theme')) { return; }
 
-    this.sound.add('theme', {loop: true, volume: 0.03}).play();
+    this.sound.add('theme', {loop: true, volume: 0.3}).play();
   }
 
-  
+
   createMap() {
     const map = this.make.tilemap({key: `level_${this.getCurrentLevel()}`});
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
@@ -168,6 +169,7 @@ class Play extends Phaser.Scene {
   onCollect(entity, collectable) {
     this.score += collectable.score;
     this.hud.updateScoreboard(this.score);
+    this.collectSound.play();
     collectable.disableBody(true, true);
   }
 
