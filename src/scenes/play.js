@@ -17,6 +17,7 @@ class Play extends Phaser.Scene {
   create({gameStatus}) {
     this.score = 0;
     this.hud = new Hud(this, 0, 0);
+    this.playBgMusic();
     const map = this.createMap();
     initAnims(this.anims);
     const layers = this.createLayers(map);
@@ -44,7 +45,7 @@ class Play extends Phaser.Scene {
     });
 
     this.createBackButton();
-    
+
     this.createEndOfLevel(playerZones.end, player);
     this.setupFollowupCameraOn(player);
     if (gameStatus === 'PLAYER_LOOSE') { return; }
@@ -54,6 +55,13 @@ class Play extends Phaser.Scene {
     initAnims(this.anims);
   }
 
+  playBgMusic() {
+    if (this.sound.get('theme')) { return; }
+
+    this.sound.add('theme', {loop: true, volume: 0.03}).play();
+  }
+
+  
   createMap() {
     const map = this.make.tilemap({key: `level_${this.getCurrentLevel()}`});
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
@@ -206,7 +214,12 @@ class Play extends Phaser.Scene {
 
     const eolOverlap = this.physics.add.overlap(player, endOfLevel, () => {
       eolOverlap.active = false;
+      if (this.registry.get('level') === this.config.lastLevel) {
+        this.scene.start('CreditsScene');
+        return;
+      }
          this.registry.inc('level', 1);
+         this.registry.inc('unlocked-levels', 1);
       this.scene.restart({gameStatus: 'LEVEL_COMPLETED'})
     })
   }
