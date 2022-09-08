@@ -67,14 +67,18 @@ class Play extends Phaser.Scene {
     const map = this.make.tilemap({key: `level_${this.getCurrentLevel()}`});
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
     map.addTilesetImage('bg_spikes_tileset', 'bg-spikes-tileset');
+    map.addTilesetImage('lava', 'lava');
     return map;
   }
 
   createLayers(map) {
     const tileset = map.getTileset('main_lev_build_1');
     const tilesetBg = map.getTileset('bg_spikes_tileset');
+    const lavabg = map.getTileset('lava');
 
+    map.createStaticLayer('lava_layer', lavabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
+    
     const platformsColliders = map.createStaticLayer('platforms_colliders', tileset);
     const environment = map.createStaticLayer('environment', tileset).setDepth(-2);
     const platforms = map.createStaticLayer('platforms', tileset);
