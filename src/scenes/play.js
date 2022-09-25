@@ -26,8 +26,6 @@ class Play extends Phaser.Scene {
     const player = this.createPlayer(playerZones.start);
     const enemies = this.createEnemies(layers.enemySpawns, layers.platformsColliders);
     const collectables = this.createCollectables(layers.collectables);
-    
-   
     this.createEnemyColliders(enemies, {
       colliders: {
         platformsColliders: layers.platformsColliders,
@@ -68,6 +66,7 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
     map.addTilesetImage('bg_spikes_tileset', 'bg-spikes-tileset');
     map.addTilesetImage('lava', 'lava');
+    map.addTilesetImage('cgpa', 'cgpa');
     return map;
   }
 
@@ -75,8 +74,10 @@ class Play extends Phaser.Scene {
     const tileset = map.getTileset('main_lev_build_1');
     const tilesetBg = map.getTileset('bg_spikes_tileset');
     const lavabg = map.getTileset('lava');
+    const cgpabg = map.getTileset('cgpa');
 
     map.createStaticLayer('lava_layer', lavabg);
+    map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
     const platformsColliders = map.createStaticLayer('platforms_colliders', tileset);
