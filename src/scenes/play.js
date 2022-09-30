@@ -64,25 +64,31 @@ class Play extends Phaser.Scene {
   createMap() {
     const map = this.make.tilemap({key: `level_${this.getCurrentLevel()}`});
     map.addTilesetImage('main_lev_build_1', 'tiles-1');
+    map.addTilesetImage('main_lev_build_2', 'tiles-2');
     map.addTilesetImage('bg_spikes_tileset', 'bg-spikes-tileset');
     map.addTilesetImage('lava', 'lava');
     map.addTilesetImage('cgpa', 'cgpa');
+    map.addTilesetImage('gs', 'gs');
+    map.addTilesetImage('gst', 'gst');
     return map;
   }
 
   createLayers(map) {
     const tileset = map.getTileset('main_lev_build_1');
+    const tileset2 = map.getTileset('main_lev_build_2');
     const tilesetBg = map.getTileset('bg_spikes_tileset');
     const lavabg = map.getTileset('lava');
     const cgpabg = map.getTileset('cgpa');
+    const gsbg = map.getTileset('gs');
+    const gstbg = map.getTileset('gst');
 
     map.createStaticLayer('lava_layer', lavabg);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
     const platformsColliders = map.createStaticLayer('platforms_colliders', tileset);
-    const environment = map.createStaticLayer('environment', tileset).setDepth(-2);
-    const platforms = map.createStaticLayer('platforms', tileset);
+    const environment = map.createStaticLayer('environment', [tileset, gstbg]).setDepth(-2);
+    const platforms = map.createStaticLayer('platforms', [tileset, tileset2,gsbg]);
     const playerZones = map.getObjectLayer('player_zones');
     const enemySpawns = map.getObjectLayer('enemy_spawns');
     const collectables = map.getObjectLayer('collectables');
