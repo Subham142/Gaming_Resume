@@ -70,6 +70,13 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('cgpa', 'cgpa');
     map.addTilesetImage('gs', 'gs');
     map.addTilesetImage('gst', 'gst');
+    map.addTilesetImage('gdate', 'gdate');
+    map.addTilesetImage('cn', 'cn');
+    map.addTilesetImage('cnt', 'cnt');
+    map.addTilesetImage('ta', 'ta');
+    map.addTilesetImage('tad', 'tad');
+    map.addTilesetImage('project1', 'project1');
+    map.addTilesetImage('website', 'website');
     return map;
   }
 
@@ -81,8 +88,17 @@ class Play extends Phaser.Scene {
     const cgpabg = map.getTileset('cgpa');
     const gsbg = map.getTileset('gs');
     const gstbg = map.getTileset('gst');
+    const gdatebg = map.getTileset('gdate');
+    const cnbg = map.getTileset('cn');
+    const cntbg = map.getTileset('cnt');
+    const tabg = map.getTileset('ta');
+    const tadbg = map.getTileset('tad');
+
+    const proTitle = map.getTileset('project1');
+    const webbg = map.getTileset('website');
 
     map.createStaticLayer('lava_layer', lavabg);
+    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, webbg]);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
