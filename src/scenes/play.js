@@ -79,6 +79,7 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('website', 'website');
     map.addTilesetImage('otaku', 'otaku');
     map.addTilesetImage('details', 'details');
+    map.addTilesetImage('phaser', 'phaser');
     return map;
   }
 
@@ -100,10 +101,12 @@ class Play extends Phaser.Scene {
     const webbg = map.getTileset('website');
     const otakubg = map.getTileset('otaku');
     const detailsbg = map.getTileset('details');
+
+    const phaserbg = map.getTileset('phaser');
     
 
     map.createStaticLayer('lava_layer', lavabg);
-    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, webbg,otakubg,detailsbg]);
+    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, webbg,otakubg,detailsbg,phaserbg]);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     

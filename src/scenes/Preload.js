@@ -44,6 +44,8 @@ class Preload extends Phaser.Scene {
     this.load.image('otaku', 'assets/otaku.png');
     this.load.image('details', 'assets/details.png');
 
+    this.load.image('phaser', 'assets/phaser.png');
+
   // loading the iceball
   this.load.image('iceball-1', 'assets/weapons/iceball_001.png');
   this.load.image('iceball-2', 'assets/weapons/iceball_002.png');
