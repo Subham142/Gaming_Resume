@@ -76,10 +76,13 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('ta', 'ta');
     map.addTilesetImage('tad', 'tad');
     map.addTilesetImage('project1', 'project1');
-    map.addTilesetImage('website', 'website');
+    map.addTilesetImage('mern', 'mern');
     map.addTilesetImage('otaku', 'otaku');
     map.addTilesetImage('details', 'details');
     map.addTilesetImage('phaser', 'phaser');
+    map.addTilesetImage('games', 'games');
+    map.addTilesetImage('list', 'list');
+    map.addTilesetImage('tourch', 'tourch');
     return map;
   }
 
@@ -98,15 +101,18 @@ class Play extends Phaser.Scene {
     const tadbg = map.getTileset('tad');
 
     const proTitle = map.getTileset('project1');
-    const webbg = map.getTileset('website');
+    const mernbg = map.getTileset('mern');
     const otakubg = map.getTileset('otaku');
     const detailsbg = map.getTileset('details');
 
     const phaserbg = map.getTileset('phaser');
+    const gamebg = map.getTileset('games');
+    const listbg = map.getTileset('list');
+    const tbg = map.getTileset('tourch');
     
 
     map.createStaticLayer('lava_layer', lavabg);
-    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, webbg,otakubg,detailsbg,phaserbg]);
+    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,gamebg,listbg,tbg]);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     

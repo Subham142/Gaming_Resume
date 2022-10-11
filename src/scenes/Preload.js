@@ -40,12 +40,14 @@ class Preload extends Phaser.Scene {
     this.load.image('tad', 'assets/tad.png');
 
     this.load.image('project1', 'assets/project1.png');
-    this.load.image('website', 'assets/website.png');
+    this.load.image('mern', 'assets/mern.png');
     this.load.image('otaku', 'assets/otaku.png');
     this.load.image('details', 'assets/details.png');
 
     this.load.image('phaser', 'assets/phaser.png');
-
+    this.load.image('games', 'assets/games.png');
+    this.load.image('list', 'assets/list.png');
+    this.load.image('tourch', 'assets/tourch.png');
   // loading the iceball
   this.load.image('iceball-1', 'assets/weapons/iceball_001.png');
   this.load.image('iceball-2', 'assets/weapons/iceball_002.png');
