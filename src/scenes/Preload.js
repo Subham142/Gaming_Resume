@@ -12,6 +12,7 @@ class Preload extends Phaser.Scene {
     this.load.tilemapTiledJSON('level_1', 'assets/crystal_world_map_level_1.json');
     this.load.tilemapTiledJSON('level_2', 'assets/crystal_world_map_level_2.json');
     this.load.tilemapTiledJSON('level_3', 'assets/crystal_world_map_level_3.json');
+    this.load.tilemapTiledJSON('level_4', 'assets/crystal_world_map_level_4.json');
 
     this.load.image('bg-spikes-tileset', 'assets/bg_spikes_tileset.png');
 
@@ -48,6 +49,9 @@ class Preload extends Phaser.Scene {
     this.load.image('games', 'assets/games.png');
     this.load.image('list', 'assets/list.png');
     this.load.image('tourch', 'assets/tourch.png');
+    this.load.image('manga', 'assets/manga.png');
+
+
   // loading the iceball
   this.load.image('iceball-1', 'assets/weapons/iceball_001.png');
   this.load.image('iceball-2', 'assets/weapons/iceball_002.png');
