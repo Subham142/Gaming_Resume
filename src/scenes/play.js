@@ -84,6 +84,9 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('list', 'list');
     map.addTilesetImage('tourch', 'tourch');
     map.addTilesetImage('manga', 'manga');
+    map.addTilesetImage('skills', 'skills');
+    map.addTilesetImage('info', 'info');
+    map.addTilesetImage('info2', 'info2');
     return map;
   }
 
@@ -112,9 +115,12 @@ class Play extends Phaser.Scene {
     const tbg = map.getTileset('tourch');
     const mbg = map.getTileset('manga');
     
+    const sbg = map.getTileset('skills');
+    const infobg = map.getTileset('info');
+    const info2bg = map.getTileset('info2');
 
     map.createStaticLayer('lava_layer', lavabg);
-    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,gamebg,listbg,tbg,mbg]);
+    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,gamebg,listbg,tbg,mbg,sbg,infobg,info2bg]);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
