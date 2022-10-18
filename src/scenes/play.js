@@ -67,6 +67,8 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('main_lev_build_2', 'tiles-2');
     map.addTilesetImage('bg_spikes_tileset', 'bg-spikes-tileset');
     map.addTilesetImage('lava', 'lava');
+    map.addTilesetImage('arrow', 'arrow');
+    map.addTilesetImage('use', 'use');
     map.addTilesetImage('cgpa', 'cgpa');
     map.addTilesetImage('gs', 'gs');
     map.addTilesetImage('gst', 'gst');
@@ -88,6 +90,11 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('info', 'info');
     map.addTilesetImage('info2', 'info2');
     map.addTilesetImage('info3', 'info3');
+    map.addTilesetImage('hi', 'hi');
+    map.addTilesetImage('name', 'name');
+    map.addTilesetImage('resume', 'resume');
+    map.addTilesetImage('space', 'space');
+    map.addTilesetImage('ins', 'ins');
     return map;
   }
 
@@ -96,6 +103,14 @@ class Play extends Phaser.Scene {
     const tileset2 = map.getTileset('main_lev_build_2');
     const tilesetBg = map.getTileset('bg_spikes_tileset');
     const lavabg = map.getTileset('lava');
+    const arrowbg = map.getTileset('arrow');
+    const usewbg = map.getTileset('use');
+    const hibg = map.getTileset('hi');
+    const resbg = map.getTileset('resume');
+    const namebg = map.getTileset('name');
+    const spabg = map.getTileset('space');
+    const insbg = map.getTileset('ins');
+
     const cgpabg = map.getTileset('cgpa');
     const gsbg = map.getTileset('gs');
     const gstbg = map.getTileset('gst');
@@ -122,7 +137,10 @@ class Play extends Phaser.Scene {
     const info3bg = map.getTileset('info3');
 
     map.createStaticLayer('lava_layer', lavabg);
-    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg, tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,gamebg,listbg,tbg,mbg,sbg,infobg,info2bg,info3bg]);
+    map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg,
+       tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,
+       gamebg,listbg,tbg,mbg,sbg,infobg,info2bg,info3bg,
+       arrowbg,usewbg,hibg,resbg,namebg,insbg]);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
