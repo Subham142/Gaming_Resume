@@ -99,6 +99,7 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('E', 'E');
     map.addTilesetImage('jump', 'jump');
     map.addTilesetImage('traps', 'traps');
+    map.addTilesetImage('myself', 'myself');
     return map;
   }
 
@@ -118,6 +119,7 @@ class Play extends Phaser.Scene {
     const ebg = map.getTileset('E');
     const jumpbg = map.getTileset('jump');
     const trapsbg = map.getTileset('traps');
+    const mybg = map.getTileset('myself');
 
     const cgpabg = map.getTileset('cgpa');
     const gsbg = map.getTileset('gs');
@@ -148,7 +150,7 @@ class Play extends Phaser.Scene {
     map.createStaticLayer('text_layer', [gdatebg, cnbg, cntbg, tabg,
        tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,
        gamebg,listbg,tbg,mbg,sbg,infobg,info2bg,info3bg,
-       arrowbg,usewbg,hibg,resbg,namebg,insbg,spabg,qsbg,ebg,jumpbg,trapsbg]);
+       arrowbg,usewbg,hibg,resbg,namebg,insbg,spabg,qsbg,ebg,jumpbg,trapsbg,mybg]);
     map.createStaticLayer('clayer', cgpabg);
     map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
