@@ -100,6 +100,10 @@ class Play extends Phaser.Scene {
     map.addTilesetImage('jump', 'jump');
     map.addTilesetImage('traps', 'traps');
     map.addTilesetImage('myself', 'myself');
+    map.addTilesetImage('school', 'school');
+    map.addTilesetImage('marks', 'marks');
+    map.addTilesetImage('clg', 'clg');
+    map.addTilesetImage('hit', 'hit');
     return map;
   }
 
@@ -120,6 +124,11 @@ class Play extends Phaser.Scene {
     const jumpbg = map.getTileset('jump');
     const trapsbg = map.getTileset('traps');
     const mybg = map.getTileset('myself');
+
+    const marksbg = map.getTileset('marks');
+    const schoolbg = map.getTileset('school');
+    const clgbg = map.getTileset('clg');
+    const hitbg = map.getTileset('hit');
 
     const cgpabg = map.getTileset('cgpa');
     const gsbg = map.getTileset('gs');
@@ -151,8 +160,10 @@ class Play extends Phaser.Scene {
        tadbg, proTitle, mernbg,otakubg,detailsbg,phaserbg,
        gamebg,listbg,tbg,mbg,sbg,infobg,info2bg,info3bg,
        arrowbg,usewbg,hibg,resbg,namebg,insbg,spabg,qsbg,ebg,jumpbg,trapsbg,mybg]);
-    map.createStaticLayer('clayer', cgpabg);
-    map.createStaticLayer('distance', tilesetBg).setDepth(-12);
+   
+    map.createStaticLayer('clayer', [schoolbg,marksbg,clgbg,hitbg]);
+   
+   map.createStaticLayer('distance', tilesetBg).setDepth(-12);
     
     const platformsColliders = map.createStaticLayer('platforms_colliders', tileset);
     const environment = map.createStaticLayer('environment', [tileset, gstbg]).setDepth(-2);
