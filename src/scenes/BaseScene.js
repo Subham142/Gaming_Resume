@@ -14,7 +14,7 @@ class BaseScene extends Phaser.Scene {
   create() {
     this.add.image(0, 0, 'menu-bg')
       .setOrigin(0)
-      .setScale(2.7);
+      .setScale(1);
 
     if (this.config.canGoBack) {
       const backButton = this.add.image(this.config.width - 10, this.config.height -10, 'back')
@@ -32,7 +32,7 @@ class BaseScene extends Phaser.Scene {
     let lastMenuPositionY = 0;
 
     menu.forEach(menuItem => {
-      const menuPosition = [this.screenCenter[0], this.screenCenter[1] + lastMenuPositionY];
+      const menuPosition = [this.screenCenter[0] , this.screenCenter[1] + lastMenuPositionY+50];
       menuItem.textGO = this.add.text(...menuPosition, menuItem.text, this.fontOptions).setOrigin(0.5, 1);
       lastMenuPositionY += this.lineHeight;
       setupMenuEvents(menuItem);
