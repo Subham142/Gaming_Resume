@@ -45,6 +45,8 @@ class Hud extends Phaser.GameObjects.Container {
     scoreText.setText(score);
     scoreImage.setX(scoreText.width + 5);
   }
+
+  
 }
 
 export default Hud;
