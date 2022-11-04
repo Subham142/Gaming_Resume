@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="./index.css" rel="stylesheet" type="text/css"  media="screen"/>
     <meta charset="utf-8">
     
     <title>Subham Yadav</title>
-    <link rel="stylesheet" type="text/css" href="index.css"/>
+    
     <link rel="icon" type="image/x-icon" href="assets/favicon.jpg">
  
     <style>
       body {
-         margin: -57px 140px;
+        margin: 64px 140px;
         max-width: 1280px;
         max-height: 600px;
+        background-color: black;
       }
+.zoom {
+ cursor: pointer;
+  transition: transform .2s; /* Animation */
+ 
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
     </style> 
-   
+ 
   </head>
 
   <body>
-    <div class="flex-container" style="background-color: red; display: flex; justify-content: space-around;  position:relative;top:694px;">
-      <div style="background-color: #f1f1f1;
-      background:"";
-      margin: 10px;
-      padding: 20px;
-      font-size: 30px;">1</div>
-      <div style="background-color: #f1f1f1;
-      margin: 10px;
-      padding: 20px;
-      font-size: 30px;">2</div>
-      <div style="background-color: #f1f1f1;
-      margin: 10px;
-      padding: 20px;
-      font-size: 30px;">3</div>  
-      <div style="background-color: #f1f1f1;
-      margin: 10px;
-      padding: 20px;
-      font-size: 30px;">4</div>
+    
+      <div 
+      style=
+      
+      "margin: 40px;
+      position: absolute;
+      top: 115px;
+      width: 70px;
+      height: 80px;
+      left: 13px;"
+      >
+      
+<a  href="https://www.w3schools.com" target="_blank">   <img class="zoom" src="/assets/linkedin.png" style="height: 100%; width: 100%;"/>
+    
+</a>  
     </div>
+    
   </body>
 </html>
