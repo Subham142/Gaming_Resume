@@ -139,30 +139,6 @@
          "objects":[
                 {
                  "height":0,
-                 "id":3,
-                 "name":"Spawn",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Birdman",
-                 "visible":true,
-                 "width":0,
-                 "x":368,
-                 "y":288
-                }, 
-                {
-                 "height":0,
-                 "id":4,
-                 "name":"Spawn",
-                 "point":true,
-                 "rotation":0,
-                 "type":"Birdman",
-                 "visible":true,
-                 "width":0,
-                 "x":672,
-                 "y":336
-                }, 
-                {
-                 "height":0,
                  "id":5,
                  "name":"Spawn",
                  "point":true,
@@ -170,8 +146,8 @@
                  "type":"Snaky",
                  "visible":true,
                  "width":0,
-                 "x":544,
-                 "y":544
+                 "x":672,
+                 "y":320
                 }],
          "opacity":1,
          "type":"objectgroup",

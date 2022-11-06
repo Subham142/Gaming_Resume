@@ -2,7 +2,6 @@ import Phaser from 'phaser';
 import Player from '../entities/Player';
 import Enemies from '../groups/Enemies';
 import Collectables from '../groups/Collectables';
-import Hud from '../hud';
 import EventEmitter from '../events/Emitter';
 
 import initAnims from '../anims';
@@ -16,7 +15,6 @@ class Play extends Phaser.Scene {
 
   create({gameStatus}) {
     this.score = 0;
-    this.hud = new Hud(this, 0, 0);
     this.playBgMusic();
     this.collectSound = this.sound.add('coin-pickup', {volume: 0.2});
     const map = this.createMap();
@@ -258,7 +256,7 @@ class Play extends Phaser.Scene {
 
   onCollect(entity, collectable) {
     this.score += collectable.score;
-    this.hud.updateScoreboard(this.score);
+    //this.hud.updateScoreboard(this.score);
     this.collectSound.play();
     collectable.disableBody(true, true);
   }
