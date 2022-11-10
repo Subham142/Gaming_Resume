@@ -31,7 +31,7 @@ A fun gaming resume where one can overcome each level and will get to know more 
 https://user-images.githubusercontent.com/60570595/201161152-05f7983a-efa1-498d-a33d-3b19cec8a3c0.mp4
 
 There are several level, with different obstacles to overcome. 
-
+</div>
 
 Features:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
@@ -40,7 +40,7 @@ Features:
 
  
 Instructions to use:
-  * https://www.pngfind.com/pngs/m/73-734882_keyboard-arrow-symbol-arrow-keys-png-transparent-png.png
+  * [!https://www.pngfind.com/pngs/m/73-734882_keyboard-arrow-symbol-arrow-keys-png-transparent-png.png]
   for movements
 
 
