@@ -40,7 +40,10 @@ Features:
 
  
 Instructions to use:
-  * for movements![download](https://user-images.githubusercontent.com/60570595/201168246-fb5125fd-bca1-4a15-8890-de7486fd1730.png)
+  * for movements use arrow keys : ![download](https://user-images.githubusercontent.com/60570595/201168246-fb5125fd-bca1-4a15-8890-de7486fd1730.png)
+  * For sword alash : ![download](https://user-images.githubusercontent.com/60570595/201169380-d115464c-0d12-42d4-bfb7-58416f08a3e3.png)
+  * For fireball: ![download](https://user-images.githubusercontent.com/60570595/201169528-12871b72-dc8c-493e-8ad7-2217f88584c6.png)
+
 
 
 
