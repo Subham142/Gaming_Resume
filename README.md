@@ -40,8 +40,8 @@ Features:
 
  
 Instructions to use:
-  * [!https://www.pngfind.com/pngs/m/73-734882_keyboard-arrow-symbol-arrow-keys-png-transparent-png.png]
-  for movements![73-734882_keyboard-arrow-symbol-arrow-keys-png-transparent-png](https://user-images.githubusercontent.com/60570595/201167783-b506295e-c690-4337-8fcc-ea12af1e1abb.jpg)
+  * 
+  for movements![download](https://user-images.githubusercontent.com/60570595/201168246-fb5125fd-bca1-4a15-8890-de7486fd1730.png)
 
 
 
