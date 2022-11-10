@@ -40,8 +40,7 @@ Features:
 
  
 Instructions to use:
-  * 
-  for movements![download](https://user-images.githubusercontent.com/60570595/201168246-fb5125fd-bca1-4a15-8890-de7486fd1730.png)
+  * for movements![download](https://user-images.githubusercontent.com/60570595/201168246-fb5125fd-bca1-4a15-8890-de7486fd1730.png)
 
 
 
@@ -50,6 +49,7 @@ Instructions to use:
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
+![images](https://user-images.githubusercontent.com/60570595/201168882-bb982499-0cfd-407d-b517-1ffb470d752c.jpg)
 
 * [![React][React.js]][React-url]
 
