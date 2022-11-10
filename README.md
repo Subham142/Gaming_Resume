@@ -41,7 +41,8 @@ Features:
  
 Instructions to use:
   * [!https://www.pngfind.com/pngs/m/73-734882_keyboard-arrow-symbol-arrow-keys-png-transparent-png.png]
-  for movements
+  for movements![73-734882_keyboard-arrow-symbol-arrow-keys-png-transparent-png](https://user-images.githubusercontent.com/60570595/201167783-b506295e-c690-4337-8fcc-ea12af1e1abb.jpg)
+
 
 
 
@@ -102,24 +103,6 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTRIBUTING -->
