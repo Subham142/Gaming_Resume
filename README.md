@@ -36,9 +36,10 @@ There are several level, with different obstacles to overcome.
 </div>
 
 Features:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* This is a Platformer game with Resume elements, where we play the game and the more level we reach, the
+    more information we uncover
+* Developed using JavaScript on Phaser-3 2D-game framework deployed on Netlify.
+* As you jump from platform to platform, you’ll have to kill monsters, evade traps, and avoid the lava.
 
  
 Instructions to use:
