@@ -2,6 +2,7 @@
 
 
 
+
 <!-- PROJECT 
 
 
@@ -42,8 +43,8 @@ Features:
  
 Instructions to use:
   * for movements use arrow keys : ![arrow](https://user-images.githubusercontent.com/60570595/201399192-31ba155b-7d61-401a-ad2c-e0cfd5b53598.png)
-  * For sword alash : ![download](https://user-images.githubusercontent.com/60570595/201169380-d115464c-0d12-42d4-bfb7-58416f08a3e3.png)
-  * For fireball: ![download](https://user-images.githubusercontent.com/60570595/201169528-12871b72-dc8c-493e-8ad7-2217f88584c6.png)
+  * For sword alash : 'E' Key
+  * For fireball: 'Q' Key
 
 
 
@@ -55,7 +56,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ![images](https://user-images.githubusercontent.com/60570595/201168882-bb982499-0cfd-407d-b517-1ffb470d752c.jpg)
 
-* [![React][React.js]][React-url]
+* ![download](https://user-images.githubusercontent.com/60570595/201399466-297bf152-4cd6-4073-a1d4-eb41833bdbf3.png)
 
 
 
