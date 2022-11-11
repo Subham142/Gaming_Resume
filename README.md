@@ -65,11 +65,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 
+## Contribution
 
-<!-- CONTACT -->
-## Contact
-
-[Subham Yadav](mailto:subhamy142@gmail.com) - subhamy142@gmail.com
+If you want to contribute create an issue or mail to [subhamy142@gmail.com](subhamy142@gmail.com) or text me on [LinkedIn](https://www.linkedin.com/in/subham-yadav-3493711a5/?originalSubdomain=in).
 
 
 
