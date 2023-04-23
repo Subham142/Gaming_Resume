@@ -26,7 +26,7 @@ SHIELDS -->
     <img src="https://github.com/Subham142/Gaming_Resume/blob/master/assets/favicon.jpg" alt="Logo" width="80" height="80">
   </a>
   
-## Gaming Resume <a  href="https://subham-gaming-resume.netlify.app/" target="_blank"><b>Live link</b></a>
+## Gaming Resume (<a  href="https://subham-gaming-resume.netlify.app/" target="_blank"><b>Live link</b></a>)
 
 A fun gaming resume where one can overcome each level and will get to know more information about me.
 
